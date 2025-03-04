@@ -25,6 +25,7 @@ public class AuthController {
     @PostMapping("/register")
     @Operation(summary = "회원가입")
     public ResponseEntity<RegisterResponse> register(@RequestBody @Valid RegisterRequest request) {
-
+        RegisterResponse response = authService.register(request);
+        return ResponseEntity.status(201).body(response);
     }
 }
