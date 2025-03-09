@@ -26,15 +26,14 @@ public class AuthService {
     public RegisterResponse register(RegisterRequest registerRequest) {
         String encodedPassword = passwordEncoder.encode(registerRequest.getPassword());
         User user = new User(registerRequest.getUsername(), encodedPassword, EntityStatus.ACTIVE);
-        userRepository.save(user);
+        User newUser = userRepository.save(user);
         return RegisterResponse.builder()
-                .id(user.getId())
-                .username(user.getUsername())
-                .password(user.getPassword())
-                .roles(user.getRoles())
-                .status(user.getStatus())
-                .createdAt(user.getCreatedAt())
-                .updateAt(user.getUpdatedAt())
+                .id(newUser.getId())
+                .username(newUser.getUsername())
+                .roles(newUser.getRoles())
+                .status(newUser.getStatus())
+                .createdAt(newUser.getCreatedAt())
+                .updateAt(newUser.getUpdatedAt())
                 .build();
     }
 }
