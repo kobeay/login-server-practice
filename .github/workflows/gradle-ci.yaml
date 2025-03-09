@@ -25,7 +25,7 @@ jobs:
         run: chmod +x ./gradlew
 
       - name: Run Gradle Clean Build
-        run: ./gradlew clean build
+        run: ./gradlew clean build -Dspring.profiles.active=test
 
       - name: Upload Build Artifacts
         uses: actions/upload-artifact@v4
