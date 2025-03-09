@@ -7,6 +7,7 @@ import com.github.kobeay.login_server.entity.User;
 import com.github.kobeay.login_server.repository.UserRepository;
 import com.github.kobeay.login_server.validator.JwtValidator;
 import jakarta.transaction.Transactional;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
